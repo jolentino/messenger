@@ -1,7 +1,3 @@
-# Express Starter
+# Hatchways Project
 
-This starter repo will be used for building applications using React, Material-UI, React-Router, Node, & Express.js.
-
-## Getting started
-
-The project is broken down into a client and server folder.
+This repo will be used for building a web-based messenger application using React, Material-UI, React-Router, Node, & Express.js.
