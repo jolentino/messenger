@@ -1,12 +1,12 @@
-// signup authentication route
+// signup + login authentication routes
 const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcryptjs');
 
-const { signupValidation } = require('../validate');
+const { signupValidation, loginValidation } = require('../validate');
 const User = require('../model/User');
 
-router.post('/', async (req, res) => {
+router.post('/signup', async (req, res) => {
 	// input validation
 	const { error } = signupValidation(req.body);
 	if (error) return res.status(400).send(`Error: ${error.details[0].message}`);
@@ -34,6 +34,20 @@ router.post('/', async (req, res) => {
 	} catch (err) {
 		res.status(400).send(err);
 	}
+});
+
+router.post('/login', async (req, res) => {
+	// input validation
+	const { error } = loginValidation(req.body);
+	if (error) return res.status(400).send(`Error: ${error.details[0].message}`);
+
+	// database validation
+	const user = await User.findOne({ email: req.body.email });
+	if (!user) return res.status(400).send(`Error: Account not found`);
+	const validPassword = await bcrypt.compare(req.body.password, user.password);
+	if (!validPassword) return res.status(400).send(`Error: Incorrect password`);
+
+	res.status(200).send('Login successful!');
 });
 
 module.exports = router;
