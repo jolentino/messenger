@@ -3,6 +3,8 @@ const express = require('express');
 const { join } = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
+const dotenv = require('dotenv');
+const mongoose = require('mongoose');
 
 const indexRouter = require('./routes/index');
 const pingRouter = require('./routes/ping');
@@ -13,6 +15,15 @@ const { json, urlencoded } = express;
 
 const app = express();
 
+dotenv.config();
+
+// connect to database
+mongoose.connect(process.env.DB_CONNECT, {
+	useNewUrlParser: true,
+	useUnifiedTopology: true,
+});
+
+// connect middleware
 app.use(logger('dev'));
 app.use(json());
 app.use(urlencoded({ extended: false }));
@@ -39,7 +50,5 @@ app.use(function (err, req, res, next) {
 	res.status(err.status || 500);
 	res.json({ error: err });
 });
-
-//
 
 module.exports = app;
