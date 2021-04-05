@@ -2,6 +2,7 @@
 const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
 
 const { signupValidation, loginValidation } = require('../validate');
 const User = require('../model/User');
@@ -46,6 +47,10 @@ router.post('/login', async (req, res) => {
 	if (!user) return res.status(400).send(`Error: Account not found`);
 	const validPassword = await bcrypt.compare(req.body.password, user.password);
 	if (!validPassword) return res.status(400).send(`Error: Incorrect password`);
+
+	// assign token
+	const token = jwt.sign({ _id: user._id }, process.env.SECRET);
+	res.cookie('token', token, { httpOnly: true });
 
 	res.status(200).send('Login successful!');
 });
