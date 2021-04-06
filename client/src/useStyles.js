@@ -8,19 +8,19 @@ const useStyles = makeStyles((theme) => ({
 		},
 	},
 	welcome: {
-		fontSize: 26,
-		paddingBottom: 20,
+		fontSize: 30,
+		paddingBottom: 30,
 		color: '#000000',
 		fontWeight: 700,
 		fontFamily: '"Open Sans"',
 	},
 	heroText: {
-		fontSize: 26,
+		fontSize: 32.5,
 		fontFamily: '"Open Sans"',
 		textAlign: 'center',
 		color: 'white',
-		marginTop: 30,
-		maxWidth: 300,
+		marginTop: 45,
+		maxWidth: 400,
 	},
 	overlay: {
 		backgroundImage: 'linear-gradient(180deg, rgb(58,141,255, 0.75) 0%, rgb(134,185,255, 0.75) 100%)',
@@ -43,6 +43,8 @@ const useStyles = makeStyles((theme) => ({
 		paddingTop: 23,
 	},
 	accBtn: {
+		fontSize: 15,
+		fontWeight: 700,
 		width: 170,
 		height: 54,
 		borderRadius: 5,
@@ -51,6 +53,7 @@ const useStyles = makeStyles((theme) => ({
 		color: '#3a8dff',
 		boxShadow: 'none',
 		marginRight: 35,
+		textTransform: 'capitalize',
 	},
 	noAccBtn: {
 		fontSize: 14,
@@ -59,6 +62,7 @@ const useStyles = makeStyles((theme) => ({
 		textAlign: 'center',
 		marginRight: 21,
 		whiteSpace: 'nowrap',
+		textTransform: 'capitalize',
 	},
 	image: {
 		backgroundImage: 'url(./images/bg-img.png)',
@@ -80,7 +84,11 @@ const useStyles = makeStyles((theme) => ({
 		width: '100%', // Fix IE 11 issue.
 		marginTop: theme.spacing(1),
 	},
-	label: { fontSize: 19, color: 'rgb(0,0,0,0.4)', paddingLeft: '5px' },
+	label: {
+		fontSize: 19,
+		color: 'rgb(0,0,0,0.4)',
+		paddingLeft: '5px',
+	},
 	submit: {
 		margin: theme.spacing(3, 2, 2),
 		padding: 10,
@@ -91,13 +99,21 @@ const useStyles = makeStyles((theme) => ({
 		fontSize: 16,
 		fontWeight: 'bold',
 		backgroundColor: '#3a8dff',
+		textTransform: 'capitalize',
 	},
 	inputs: {
 		marginTop: '.8rem',
 		height: '2rem',
 		padding: '5px',
+		fontWeight: '700',
+		fontSize: 16,
 	},
-	link: { textDecoration: 'none', display: 'flex', flexWrap: 'nowrap' },
+	link: {
+		textDecoration: 'none',
+		display: 'flex',
+		flexWrap: 'wrap',
+		justifyContent: 'flex-end',
+	},
 	forgot: {
 		paddingRight: 10,
 		color: '#3a8dff',

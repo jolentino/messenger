@@ -11,7 +11,7 @@ const SidebarImage = () => {
 	return (
 		<Box className={classes.overlay}>
 			<Hidden xsDown>
-				<img width={67} src="/images/chatBubble.png" />
+				<img width={80} src="/images/chatBubble.png" />
 				<Hidden smDown>
 					<Typography className={classes.heroText}>Converse with anyone with any language</Typography>
 				</Hidden>

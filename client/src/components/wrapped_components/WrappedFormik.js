@@ -1,5 +1,4 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
 import { Formik } from 'formik';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
@@ -42,7 +41,6 @@ const WrappedFormik = ({ actionType, action }) => {
 							id="username"
 							label={<Typography className={classes.label}>Username</Typography>}
 							fullWidth
-							id="username"
 							margin="normal"
 							InputLabelProps={{
 								shrink: true,
@@ -98,7 +96,7 @@ const WrappedFormik = ({ actionType, action }) => {
 
 					<Box textAlign="center">
 						<Button type="submit" size="large" variant="contained" color="primary" className={classes.submit}>
-							{actionType}
+							{actionType === 'login' ? 'Login' : 'Create'}
 						</Button>
 					</Box>
 

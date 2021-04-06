@@ -11,7 +11,7 @@ const Title = ({ actionType }) => {
 		<Grid container>
 			<Grid item xs>
 				<Typography className={classes.welcome} component="h1" variant="h5">
-					{actionType === 'login' ? 'Welcome back!' : 'Create an account'}
+					{actionType === 'login' ? 'Welcome back!' : 'Create an account.'}
 				</Typography>
 			</Grid>
 		</Grid>
