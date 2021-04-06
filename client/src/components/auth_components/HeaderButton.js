@@ -11,7 +11,7 @@ const HeaderButton = ({ actionType }) => {
 		<Box p={1} alignSelf="flex-end" alignItems="center">
 			<Link to={actionType === 'login' ? '/signup' : 'login'} className={classes.link}>
 				<Button className={classes.noAccBtn}>{`${actionType === 'login' ? "Don't" : 'Already'} have an account?`}</Button>
-				<Button color="background" className={classes.accBtn} variant="contained">
+				<Button className={classes.accBtn} variant="contained">
 					{actionType === 'login' ? 'Create account' : 'Login'}
 				</Button>
 			</Link>
