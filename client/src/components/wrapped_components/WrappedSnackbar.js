@@ -22,11 +22,11 @@ const WrappedSnackbar = ({ actionType, open, setOpen }) => {
 			onClose={handleClose}
 			message={message}
 			action={
-				<React.Fragment>
+				<>
 					<IconButton size="small" aria-label="close" color="inherit" onClick={handleClose}>
 						<CloseIcon fontSize="small" />
 					</IconButton>
-				</React.Fragment>
+				</>
 			}
 		/>
 	);
