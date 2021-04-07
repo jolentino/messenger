@@ -12,23 +12,26 @@ import Title from '../components/auth_components/Title';
 import WrappedFormik from '../components/wrapped_components/WrappedFormik';
 import WrappedSnackbar from '../components/wrapped_components/WrappedSnackbar';
 
-// middleware placeholder
 function useLogin() {
-	const history = useHistory();
-
-	const login = async (email, password) => {
-		console.log(email, password);
-		const res = await fetch(`/auth/login?email=${email}&password=${password}`).then((res) => res.json());
-		localStorage.setItem('user', res.user);
-		localStorage.setItem('token', res.token);
-		history.push('/dashboard');
+	const login = async ({ email, password }) => {
+		return await fetch('/login', {
+			method: 'POST',
+			headers: {
+				Accept: 'application/json',
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify({
+				email,
+				password,
+			}),
+		});
 	};
 	return login;
 }
 
 export default function Login() {
 	const classes = useStyles();
-	const [open, setOpen] = React.useState(true);
+	const [open, setOpen] = React.useState(false);
 
 	const history = useHistory();
 
@@ -36,7 +39,7 @@ export default function Login() {
 		const user = localStorage.getItem('user');
 		if (user) history.push('/dashboard');
 	}, []);
-	
+
 	const login = useLogin();
 
 	return (
@@ -46,14 +49,14 @@ export default function Login() {
 			<Grid item xs={false} sm={4} md={5} className={classes.image}>
 				<SidebarImage />
 			</Grid>
-			
+
 			<Grid item xs={12} sm={8} md={7} elevation={6} component={Paper} square>
 				<Box className={classes.buttonHeader}>
 					<HeaderButton actionType="login" />
 
 					<Box width="100%" maxWidth={450} p={3} alignSelf="center">
 						<Title actionType="login" />
-						<WrappedFormik actionType="login" action={login} />
+						<WrappedFormik actionType="login" action={login} setOpen={setOpen}/>
 					</Box>
 					<Box p={1} alignSelf="center" />
 				</Box>

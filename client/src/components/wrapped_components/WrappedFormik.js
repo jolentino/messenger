@@ -1,4 +1,5 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 import { Formik } from 'formik';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
@@ -8,28 +9,29 @@ import Typography from '@material-ui/core/Typography';
 import useStyles from '../../useStyles';
 import { validationSchema } from '../../validationSchema';
 
-const WrappedFormik = ({ actionType, action }) => {
+const WrappedFormik = ({ actionType, action, setOpen }) => {
+	const history = useHistory();
 	const classes = useStyles();
 
 	return (
 		<Formik
 			initialValues={{
+				username: '',
 				email: '',
 				password: '',
 			}}
 			validationSchema={validationSchema(actionType)}
-			onSubmit={({ email, password }, { setStatus, setSubmitting }) => {
-				console.log(email, password);
+			onSubmit={({ ...args }, { setStatus, setSubmitting }) => {
 				setStatus();
-				action(email, password).then(
+				action(args).then(
 					() => {
-						// useHistory push to chat
-						console.log(email, password);
+						history.push('/dashboard');
 						return;
 					},
 					(error) => {
 						setSubmitting(false);
 						setStatus(error);
+						setOpen(true);
 					}
 				);
 			}}>

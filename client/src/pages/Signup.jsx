@@ -12,24 +12,27 @@ import Title from '../components/auth_components/Title';
 import WrappedFormik from '../components/wrapped_components/WrappedFormik';
 import WrappedSnackbar from '../components/wrapped_components/WrappedSnackbar';
 
-// middleware placeholder
 function useSignup() {
-	const history = useHistory();
-
-	const login = async (username, email, password) => {
-		console.log(email, password);
-		const res = await fetch(`/auth/signup?username=${username}&email=${email}&password=${password}`).then((res) => res.json());
-		console.log(res);
-		localStorage.setItem('user', res.user);
-		localStorage.setItem('token', res.token);
-		history.push('/dashboard');
+	const login = async ({ username, email, password }) => {
+		return await fetch('/signup', {
+			method: 'POST',
+			headers: {
+				Accept: 'application/json',
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify({
+				username,
+				email,
+				password,
+			}),
+		});
 	};
 	return login;
 }
 
 export default function Signup() {
 	const classes = useStyles();
-	const [open, setOpen] = React.useState(true);
+	const [open, setOpen] = React.useState(false);
 
 	const history = useHistory();
 
@@ -54,7 +57,7 @@ export default function Signup() {
 
 					<Box width="100%" maxWidth={450} p={3} alignSelf="center">
 						<Title actionType="signup" />
-						<WrappedFormik actionType="signup" action={signup} />
+						<WrappedFormik actionType="signup" action={signup} setOpen={setOpen} />
 					</Box>
 					<Box p={1} alignSelf="center" />
 				</Box>
