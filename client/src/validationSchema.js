@@ -7,5 +7,5 @@ export const validationSchema = (type) => {
 		password: Yup.string().required('Password is required').max(100, 'Password is too long').min(6, 'Password too short'),
 	});
 
-	return type === 'Login' ? emailAndPasswordSchema : emailAndPasswordSchema.concat(usernameSchema);
+	return type === 'login' ? emailAndPasswordSchema : emailAndPasswordSchema.concat(usernameSchema);
 };
