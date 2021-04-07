@@ -38,7 +38,7 @@ const WrappedFormik = ({ actionType, action, setOpen }) => {
 			{({ handleSubmit, handleChange, values, touched, errors }) => (
 				<form onSubmit={handleSubmit} className={classes.form} noValidate>
 					{/* conditional username field */}
-					{actionType === 'login' ? null : (
+					{actionType !== 'login' && (
 						<TextField
 							id="username"
 							label={<Typography className={classes.label}>Username</Typography>}
@@ -103,7 +103,7 @@ const WrappedFormik = ({ actionType, action, setOpen }) => {
 					</Box>
 
 					{/* conditional spacing */}
-					{actionType === 'login' ? <div style={{ height: 95 }} /> : null}
+					{actionType !== 'login' && <div style={{ height: 95 }} />}
 				</form>
 			)}
 		</Formik>
