@@ -13,7 +13,7 @@ import WrappedFormik from '../components/wrapped_components/WrappedFormik';
 import WrappedSnackbar from '../components/wrapped_components/WrappedSnackbar';
 
 function useSignup() {
-	const login = async ({ username, email, password }) => {
+	const signup = async ({ username, email, password }) => {
 		return await fetch('/signup', {
 			method: 'POST',
 			headers: {
@@ -27,7 +27,7 @@ function useSignup() {
 			}),
 		});
 	};
-	return login;
+	return signup;
 }
 
 export default function Signup() {
