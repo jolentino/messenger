@@ -31,6 +31,11 @@ router.post('/signup', async (req, res) => {
 	// add user to database
 	try {
 		await user.save();
+
+		// assign token after creating user
+		const token = jwt.sign({ _id: user._id }, process.env.SECRET);
+		res.cookie('token', token, { httpOnly: true });
+
 		res.status(201).send('User successfully created!');
 	} catch (err) {
 		res.status(400).send(err);
