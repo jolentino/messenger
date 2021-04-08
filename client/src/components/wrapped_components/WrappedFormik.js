@@ -23,17 +23,18 @@ const WrappedFormik = ({ actionType, action, setOpen }) => {
 			validationSchema={validationSchema(actionType)}
 			onSubmit={({ ...args }, { setStatus, setSubmitting }) => {
 				setStatus();
-				action(args).then(
-					() => {
+				action(args)
+					.then(() => {
 						history.push('/dashboard');
 						return;
-					},
-					(error) => {
-						setSubmitting(false);
-						setStatus(error);
-						setOpen(true);
-					}
-				);
+					})
+					.catch(() => {
+						(error) => {
+							setSubmitting(false);
+							setStatus(error);
+							setOpen(true);
+						};
+					});
 			}}>
 			{({ handleSubmit, handleChange, values, touched, errors }) => (
 				<form onSubmit={handleSubmit} className={classes.form} noValidate>
