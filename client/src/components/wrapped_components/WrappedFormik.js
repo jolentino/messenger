@@ -19,7 +19,6 @@ const WrappedFormik = ({ actionType, action }) => {
 			}}
 			validationSchema={validationSchema(actionType)}
 			onSubmit={({ email, password }, { setStatus, setSubmitting }) => {
-				console.log(email, password);
 				setStatus();
 				action(email, password).then(
 					() => {
