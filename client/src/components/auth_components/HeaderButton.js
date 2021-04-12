@@ -2,10 +2,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
 import Box from '@material-ui/core/Box';
-import useStyles from '../../useStyles';
+
+import useHeaderButtonStyles from '../../styles/useHeaderButtonStyles';
 
 const HeaderButton = ({ actionType }) => {
-	const classes = useStyles();
+	const classes = useHeaderButtonStyles();
 
 	return (
 		<Box p={1} alignSelf="flex-end" alignItems="center">
