@@ -101,6 +101,12 @@ const useStyles = makeStyles((theme) => ({
 		backgroundColor: '#3a8dff',
 		textTransform: 'capitalize',
 	},
+	whitespace: {
+		marginTop: '6.9rem',
+	},
+	hide: {
+		display: 'none',
+	},
 	inputs: {
 		marginTop: '.8rem',
 		height: '2rem',

@@ -100,7 +100,7 @@ const WrappedFormik = ({ actionType, action }) => {
 					</Box>
 
 					{/* conditional spacing */}
-					{actionType === 'login' ? <div style={{ height: 95 }} /> : null}
+					<div className={actionType === 'login' ? classes.whitespace : classes.hide} />
 				</form>
 			)}
 		</Formik>
