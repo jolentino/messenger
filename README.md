@@ -1,11 +1,11 @@
 <!-- Project Intro -->
 <br />
 <p align="center">
-  <a>
     <img src="https://jolentino.netlify.app/imgs/messenger.gif" alt="Logo" width="400">
-  </a>
 
   <h1 align="center">Messenger</h1>
+  
+</p>
 
 <!-- ABOUT THE PROJECT -->
 ## Description
