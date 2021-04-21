@@ -1,7 +1,7 @@
 <!-- Project Intro -->
 <br />
 <p align="center">
-    <img src="https://jolentino.netlify.app/imgs/messenger.gif" alt="Logo" width="400">
+    <img src="https://jolentino.netlify.app/imgs//messenger.gif" alt="Logo" width="400">
 
   <h1 align="center">Messenger</h1>
   
