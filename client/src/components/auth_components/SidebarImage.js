@@ -3,10 +3,10 @@ import Box from '@material-ui/core/Box';
 import Hidden from '@material-ui/core/Hidden';
 import Typography from '@material-ui/core/Typography';
 
-import useStyles from '../../useStyles';
+import useSidebarImageStyles from '../../styles/useSidebarImageStyles';
 
 const SidebarImage = () => {
-	const classes = useStyles();
+	const classes = useSidebarImageStyles();
 
 	return (
 		<Box className={classes.overlay}>

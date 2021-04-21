@@ -2,10 +2,10 @@ import React from 'react';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 
-import useStyles from '../../useStyles';
+import useTitleStyles from '../../styles/useTitleStyles';
 
 const Title = ({ actionType }) => {
-	const classes = useStyles();
+	const classes = useTitleStyles();
 
 	return (
 		<Grid container>

@@ -5,7 +5,7 @@ import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
 import Paper from '@material-ui/core/Paper';
 
-import useStyles from '../useStyles';
+import useAuthStyles from '../styles/useAuthStyles';
 import SidebarImage from '../components/auth_components/SidebarImage';
 import HeaderButton from '../components/auth_components/HeaderButton';
 import Title from '../components/auth_components/Title';
@@ -31,7 +31,8 @@ function useSignup() {
 }
 
 export default function Signup() {
-	const classes = useStyles();
+
+	const classes = useAuthStyles();
 	const [open, setOpen] = React.useState(false);
 
 	const history = useHistory();

@@ -6,12 +6,12 @@ import Button from '@material-ui/core/Button';
 import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
 
-import useStyles from '../../useStyles';
+import useWrappedFormikStyles from '../../styles/useWrappedFormikStyles';
 import { validationSchema } from '../../validationSchema';
 
 const WrappedFormik = ({ actionType, action, setOpen }) => {
-	const history = useHistory();
-	const classes = useStyles();
+  const history = useHistory();
+	const classes = useWrappedFormikStyles();
 
 	return (
 		<Formik
@@ -104,7 +104,7 @@ const WrappedFormik = ({ actionType, action, setOpen }) => {
 					</Box>
 
 					{/* conditional spacing */}
-					{actionType !== 'login' && <div style={{ height: 95 }} />}
+					<div className={actionType === 'login' ? classes.whitespace : classes.hide} />
 				</form>
 			)}
 		</Formik>
