@@ -1,4 +1,5 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 import { Formik } from 'formik';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
@@ -8,34 +9,37 @@ import Typography from '@material-ui/core/Typography';
 import useWrappedFormikStyles from '../../styles/useWrappedFormikStyles';
 import { validationSchema } from '../../validationSchema';
 
-const WrappedFormik = ({ actionType, action }) => {
+const WrappedFormik = ({ actionType, action, setOpen }) => {
+  const history = useHistory();
 	const classes = useWrappedFormikStyles();
 
 	return (
 		<Formik
 			initialValues={{
+				username: '',
 				email: '',
 				password: '',
 			}}
 			validationSchema={validationSchema(actionType)}
-			onSubmit={({ email, password }, { setStatus, setSubmitting }) => {
+			onSubmit={({ ...args }, { setStatus, setSubmitting }) => {
 				setStatus();
-				action(email, password).then(
-					() => {
-						// useHistory push to chat
-						console.log(email, password);
+				action(args)
+					.then(() => {
+						history.push('/dashboard');
 						return;
-					},
-					(error) => {
-						setSubmitting(false);
-						setStatus(error);
-					}
-				);
+					})
+					.catch(() => {
+						(error) => {
+							setSubmitting(false);
+							setStatus(error);
+							setOpen(true);
+						};
+					});
 			}}>
 			{({ handleSubmit, handleChange, values, touched, errors }) => (
 				<form onSubmit={handleSubmit} className={classes.form} noValidate>
 					{/* conditional username field */}
-					{actionType === 'login' ? null : (
+					{actionType !== 'login' && (
 						<TextField
 							id="username"
 							label={<Typography className={classes.label}>Username</Typography>}
