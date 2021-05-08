@@ -10,7 +10,7 @@
 <!-- ABOUT THE PROJECT -->
 ## Description
 
-This app is designed to be an e-commerce website to purchase customizable plant-based protein powders. It guides the user from start to finish through the purchasing of a product. It features an interactive display that dynamically displays the user's choices while building their powder. Upon checkout, the user is greeted with the familiar PayPal button, which provides an easy way to capture transactions. Once the transaction is complete, the user is redirected to the final page where the confirmation of the order is detailed. Pick'd is styled with a minimalist aesthetic, with a natural green as its key accent color.
+This full-stack app is designed to model social media login pages. It processes user-generated credentials delivered to and from a cloud database. It features a standard, two-page layout for registering an account and logging into an account. Passwords are safely encrypted before database storage. Once an account is created or a user is logged in, the session persists through cookie-based authentication. Pick'd is styled with a minimalist aesthetic, with a natural green as its key accent color.
 
 ### Built With 
 * MongoDB
